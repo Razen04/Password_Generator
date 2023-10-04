@@ -6,7 +6,8 @@ The Password Generator is a simple web application that generates secure and ran
 
 This project is designed to provide users with a quick and easy way to create strong and unique passwords for their online accounts, enhancing their digital security.
 
-![Scrrenshot](https://github.com/Razen04/Password_Generator/assets/73794553/d229ddb4-1cd3-442d-ac76-b0abd76a1bb6)
+![screenshot](https://github.com/Razen04/Password_Generator/assets/73794553/04709427-1377-47d0-b706-ebddc57b776d)
+
 
 ## Features
 
