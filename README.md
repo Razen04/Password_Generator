@@ -1,6 +1,7 @@
 # Password Generator
 
 ## Description
+![Scrrenshot](https://github.com/Razen04/Password_Generator/assets/73794553/d229ddb4-1cd3-442d-ac76-b0abd76a1bb6)
 
 The Password Generator is a simple web application that generates secure and random passwords. 
 
