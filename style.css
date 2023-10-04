@@ -7,7 +7,8 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Mukta', sans-serif;
-    background-color: #ECFDF5;
+    background-color: #0d1117;
+    color: #c9d1d9;
     height: 100vh;
 }
 .container{
@@ -15,6 +16,7 @@ body{
     width: 500px;
     height: 500px;
     padding: 50px;
+    background-color: #161b22;
 }
 .container h1{
     line-height: 130%;
@@ -24,11 +26,11 @@ h1{
     text-align: left;
     font-size: 50px;
     padding: 10px 0 0px 0;
-    color: #273549;
-    border-bottom: 1px solid grey;
+    color: #c9d1d9;
+    border-bottom: 1px solid #30363d;
 }
 span{
-    color: #10B981;
+    color: #58a6ff;
     font-weight: 500;
 }
 
@@ -38,7 +40,7 @@ p{
     border-radius: 10px;
     padding: 10px 50px 5px 50px;
     height:40px;
-    color: yellow;
+    color: #c9d1d9;
     background-color: #273549;
     font-size: 1.5rem;
 }
@@ -46,7 +48,7 @@ button{
     margin: 50px auto;
     padding: 10px 60px;
     color: black;
-    background-color: rgba(3, 164, 3,0.5);
+    background-color: #58a6ff;
     border: none;
     border-radius: 8px;
     font-size: 24px;
@@ -57,7 +59,7 @@ button{
 }
 button:hover{
     color: black;
-    background-color: rgba(1, 93, 1,0.5);
+    background-color: #0366d6;
 }
 .custom-notification{
     position: fixed;
@@ -65,7 +67,7 @@ button:hover{
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #4CAF50;
+    background-color: #0366d6;
     padding: 10px;
     border-radius: 4px;
     z-index: 1000;
