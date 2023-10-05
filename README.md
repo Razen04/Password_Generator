@@ -14,6 +14,7 @@ This project is designed to provide users with a quick and easy way to create st
 - Include uppercase letters, lowercase letters, numbers, and special characters in passwords.
 - Copy generated passwords to the clipboard with a single click.
 - User-friendly and intuitive interface.
+- Toggle between dark and light mode.
 
 ## Technologies Used
 
