@@ -31,7 +31,7 @@ function copyTextToClipboard(text) {
     document.execCommand("copy");
     document.body.removeChild(textArea);
 }
-function showNotification(message, duration){
+function showNotification(message, duration) {
     const notification = document.createElement("div");
     notification.textContent = message;
     notification.classList.add("custom-notification");
@@ -40,6 +40,22 @@ function showNotification(message, duration){
         document.body.removeChild(notification)
     }, duration);
 }
+const modeIcon = document.getElementById("modeIcon");
+const stylesheet = document.getElementById("stylesheet");
+const moonIcon = document.getElementById("moonIcon")
+function toggleMode() {
+    const currentMode = stylesheet.getAttribute("href")
+    if (currentMode === 'dark-mode.css') {
+        stylesheet.setAttribute('href', 'light-mode.css');
+        modeIcon.style.display = 'inline';
+        moonIcon.style.display = 'none';
+    } else {
+        stylesheet.setAttribute('href', 'dark-mode.css');
+        modeIcon.style.display = 'none';
+        moonIcon.style.display = 'inline';
+    }
+}
+
 
 
 

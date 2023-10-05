@@ -1,0 +1,98 @@
+*{
+    border: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Mukta', sans-serif;
+    background-color: #fff;
+    color: #333;
+    height: 100vh;
+    transition: background-color 1s ease, color 1s ease;
+}
+.container{
+    position: relative;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    padding: 50px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+.container h1{
+    line-height: 130%;
+    color: #0366d6;
+}
+
+h1{
+    text-align: left;
+    font-size: 50px;
+    padding: 10px 0 0px 0;
+    color: #333;
+    border-bottom: 1px solid #e1e4e8;
+}
+span{
+    color: #58a6ff;
+    font-weight: 500;
+}
+
+p{
+    margin: 55px 0 20px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 50px 5px 50px;
+    height:40px;
+    color: black;
+    background-color: white;
+    font-size: 1.5rem;
+}
+button{
+    margin: 50px auto;
+    padding: 10px 60px;
+    color: #fff;
+    background-color: #0366d6;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all ease-in 0.4s;
+    width: 100%;
+}
+button:hover{
+    color: white;
+    background-color: #003366;
+}
+.custom-notification{
+    position: fixed;
+    color: white;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ea44f;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1000;
+}
+i {
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    cursor: pointer;
+    transition: transform 2s ease;
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 256px;
+    }
+    p{
+        width: 87%;
+        margin: 55px 0 20px -35px;
+    }
+    button{
+        margin: 50px 0px 50px -31px;
+        width: 123%;
+    }
+}
