@@ -39,9 +39,9 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## To-Do
 
-[]Customisable Options
-[]Strength Indicator
-[]Password History
-[]Browser Extension
-[]Password Generator API
-[]Bulk Password Generator
+-[ ] Customisable Options
+-[ ] Strength Indicator
+-[ ] Password History
+-[ ] Browser Extension
+-[ ] Password Generator API
+-[ ] Bulk Password Generator
