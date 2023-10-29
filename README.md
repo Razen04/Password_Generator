@@ -39,9 +39,22 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## To-Do
 
--[ ] Customisable Options
--[ ] Strength Indicator
--[ ] Password History
--[ ] Browser Extension
--[ ] Password Generator API
--[ ] Bulk Password Generator
+- [x] Create a basic password generator that can generate random 15-character passwords.
+- [ ] Allow users to customize password length and character sets.
+- [ ] Implement a strength indicator to help users assess password security.
+- [ ] Enable the generation of pronounceable passwords and passphrases.
+- [ ] Display estimated password entropy to show its strength.
+- [x] Add a "Copy to Clipboard" feature for generated passwords.
+- [ ] Provide options to save or export generated passwords securely.
+- [ ] Maintain a history of generated passwords for easy access.
+- [ ] Enable bulk password generation for multiple accounts.
+- [ ] Develop a browser extension for seamless integration with web browsers.
+- [ ] Offer offline use of the password generator.
+- [ ] Implement password storage and management with encryption and two-factor authentication options.
+- [ ] Create a Password Generator API for programmatic use.
+- [ ] Expand the generator to create secure tokens for two-factor authentication and API keys.
+- [ ] Ensure compatibility with popular password managers for easy storage and autofill.
+- [ ] Keep the user interface clean and user-friendly.
+- [ ] Stay updated on best practices for password security.
+
+Feel free to contribute to this project by working on any of the tasks above. Your contributions are greatly appreciated!
