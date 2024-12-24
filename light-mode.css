@@ -1,18 +1,20 @@
-*{
+* {
     border: 0;
     margin: 0;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Mukta', sans-serif;
-    background-color: #fff;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     color: #333;
     height: 100vh;
     transition: background-color 1s ease, color 1s ease;
 }
-.container{
+
+.container {
     position: relative;
     text-align: center;
     width: 500px;
@@ -20,35 +22,43 @@ body{
     padding: 50px;
     background-color: whitesmoke;
     border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15),
+                0 0 20px rgba(0, 0, 255, 0.2) inset;
+    /* Glow border */
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
-.container h1{
+
+.container h1 {
     line-height: 130%;
     color: #0366d6;
 }
 
-h1{
+h1 {
     text-align: left;
     font-size: 50px;
     padding: 10px 0 0px 0;
     color: #333;
     border-bottom: 1px solid #e1e4e8;
 }
-span{
+
+span {
     color: #58a6ff;
     font-weight: 500;
 }
 
-p{
+p {
     margin: 55px 0 20px 0;
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px 50px 5px 50px;
-    height:40px;
+    height: 40px;
     color: black;
     background-color: white;
     font-size: 1.5rem;
 }
-button{
+
+button {
     margin: 50px auto;
     padding: 10px 60px;
     color: #fff;
@@ -61,11 +71,14 @@ button{
     transition: all ease-in 0.4s;
     width: 100%;
 }
-button:hover{
+
+button:hover {
     color: white;
-    background-color: #003366;
+    background-color: #004080;
+    transform: scale(1.05);
 }
-.custom-notification{
+
+.custom-notification {
     position: fixed;
     color: white;
     top: 10px;
@@ -76,6 +89,7 @@ button:hover{
     border-radius: 4px;
     z-index: 1000;
 }
+
 i {
     position: absolute;
     bottom: 50px;
@@ -83,15 +97,22 @@ i {
     cursor: pointer;
     transition: transform 2s ease;
 }
-@media screen and (max-width: 768px){
-    .container{
+
+i:hover {
+    transform: rotate(20deg);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
         width: 256px;
     }
-    p{
+
+    p {
         width: 87%;
         margin: 55px 0 20px -35px;
     }
-    button{
+
+    button {
         margin: 50px 0px 50px -31px;
         width: 123%;
     }
