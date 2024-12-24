@@ -1,8 +1,25 @@
-const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~1234567890";
+const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+const numberChars = "0123456789";
+const symbolChars = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-function generatePassword(length) {
+function generatePassword() {
   const passEl = document.getElementById("pass-el");
-  const password = Array.from({length}, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  const length = parseInt(document.getElementById("lengthInput").value, 10);
+  let finalChars = "";
+
+  if (document.getElementById("includeUpper").checked) finalChars += uppercaseChars;
+  if (document.getElementById("includeLower").checked) finalChars += lowercaseChars;
+  if (document.getElementById("includeNumbers").checked) finalChars += numberChars;
+  if (document.getElementById("includeSymbols").checked) finalChars += symbolChars;
+
+  // Ensure there's at least one character set selected
+  if (!finalChars) {
+    showNotification("Please select at least one character type", 2000);
+    return;
+  }
+
+  const password = Array.from({length}, () => finalChars[Math.floor(Math.random() * finalChars.length)]).join("");
   passEl.textContent = password;
   navigator.clipboard.writeText(password).then(() => showNotification("Password copied!", 2000));
 }
@@ -56,5 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
   modeIcon.addEventListener("click", toggleMode);
 
   const generateButton = document.getElementById("generate-button");
-  generateButton.addEventListener("click", () => generatePassword(15));
+  generateButton.addEventListener("click", () => generatePassword());
 });
