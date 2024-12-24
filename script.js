@@ -1,50 +1,46 @@
-const allCharacters = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    ' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',',
-    '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']',
-    '^', '_', '`', '{', '|', '}', '~', '1', '2', '2', '4', '5', '6', '7', '8', '9', '0'];
-function passGenerate(length) {
-    let password = ''
-    for (let i = 0; i < length; i++) {
-        let index = Math.floor(Math.random() * allCharacters.length)
-        password += allCharacters[index]
-    }
-    return password;
-}
+const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~1234567890";
+
 function generatePassword(length) {
-    let passEl = document.getElementById("pass-el");
-    const password = passGenerate(length);
-    passEl.textContent = password;
-    copyTextToClipboard(password);
-    showNotification("Password is Copied.", 2000);
+  const passEl = document.getElementById("pass-el");
+  const password = Array.from({length}, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  passEl.textContent = password;
+  navigator.clipboard.writeText(password).then(() => showNotification("Password copied!", 2000));
 }
-function copyTextToClipboard(text) {
-    const textArea = document.createElement("textArea");
-    textArea.value = text;
-    textArea.style.position = "absolute";
-    textArea.style.left = "-9999px";
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textArea);
-}
+
 function showNotification(message, duration) {
-    const notification = document.createElement("div");
-    notification.textContent = message;
-    notification.classList.add("custom-notification");
-    document.body.appendChild(notification);
-    setTimeout(function () {
-        document.body.removeChild(notification)
-    }, duration);
+  const notificationContainer = document.getElementById("notification-container");
+  const notification = document.createElement("div");
+  notification.textContent = message;
+  notification.classList.add("custom-notification");
+  notificationContainer.appendChild(notification);
+  setTimeout(function () {
+      notificationContainer.removeChild(notification);
+  }, duration);
 }
-const modeIcon = document.getElementById("modeIcon");
-const stylesheet = document.getElementById("stylesheet");
-const moonIcon = document.getElementById("moonIcon")
-function toggleMode() {
-    const currentMode = stylesheet.getAttribute("href")
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modeIcon = document.getElementById("modeIcon");
+  const stylesheet = document.getElementById("stylesheet");
+  const moonIcon = document.getElementById("moonIcon");
+  if (stylesheet.getAttribute("href") === 'dark-mode.css') {
+    modeIcon.style.display = 'none';
+    moonIcon.style.display = 'inline';
+  } else {
+    modeIcon.style.display = 'inline';
+    moonIcon.style.display = 'none';
+  }
+
+  const heading = document.getElementById("main-heading");
+  const headingOptions = [
+    "Crank out a mighty<br><span>Password 🚀</span>",
+    "Forge your ultimate<br><span>Password 🔑</span>",
+    "Unleash unstoppable<br><span>Password 🔥</span>",
+    "Blaze through with<br><span>Password ⚡</span>"
+  ];
+  heading.innerHTML = headingOptions[Math.floor(Math.random() * headingOptions.length)];
+
+  function toggleMode() {
+    const currentMode = stylesheet.getAttribute("href");
     if (currentMode === 'dark-mode.css') {
         stylesheet.setAttribute('href', 'light-mode.css');
         modeIcon.style.display = 'inline';
@@ -54,9 +50,11 @@ function toggleMode() {
         modeIcon.style.display = 'none';
         moonIcon.style.display = 'inline';
     }
-}
+  }
 
+  moonIcon.addEventListener("click", toggleMode);
+  modeIcon.addEventListener("click", toggleMode);
 
-
-
-
+  const generateButton = document.getElementById("generate-button");
+  generateButton.addEventListener("click", () => generatePassword(15));
+});
