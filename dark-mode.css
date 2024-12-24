@@ -56,24 +56,29 @@ p {
     font-size: 1.5rem;
 }
 
+/* Button Styles */
 button {
-    margin: 50px auto;
-    padding: 10px 60px;
-    color: black;
+    margin: 20px auto;
+    padding: 10px 40px;
+    color: #fff;
     background-color: #58a6ff;
     border: none;
     border-radius: 8px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     transition: all ease-in 0.4s;
-    width: 100%;
+    width: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    display: block;
 }
 
+/* Hover Effects for Button */
 button:hover {
-    color: black;
+    color: #fff;
     background-color: #025cb9;
     transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.7);
 }
 
 .custom-notification {
@@ -100,6 +105,187 @@ i:hover {
     transform: rotate(20deg);
 }
 
+#strength-indicator {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#strength-bar {
+    width: 0%;
+    height: 10px;
+    background-color: red;
+    border-radius: 5px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+#strength-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #c9d1d9;
+}
+
+/* Slider Input Styles */
+.length-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#lengthInput {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70%;
+    height: 8px;
+    border-radius: 5px;
+    background: #58a6ff;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    flex: 1;
+    margin-right: 10px;
+}
+
+#lengthInput:hover {
+    opacity: 1;
+}
+
+#lengthInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #273549;
+    border: 2px solid #58a6ff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#lengthInput::-webkit-slider-thumb:hover {
+    background: #2a3b55;
+    transform: scale(1.1);
+}
+
+#length-value {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #c9d1d9;
+}
+
+/* Modern Input Focus */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* Container for Options and Length Control */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.options, .length-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.length-control {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.length-control label {
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #c9d1d9;
+}
+
+#lengthInput {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#length-value {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #c9d1d9;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 256px;
+    }
+
+    p {
+    position: relative;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #555;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #273549;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background-color: #58a6ff;
+
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* Optional: Add focus styles for accessibility */
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px #58a6ff;
+}
+
+.label-text {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #c9d1d9;
+}
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .container {
         width: 256px;
@@ -114,4 +300,30 @@ i:hover {
         margin: 50px 0px 50px -31px;
         width: 123%;
     }
+
+    .options, .length-control {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .switch {
+        width: 80%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    .length-control {
+        flex-direction: column;
+    }
+
+    .length-control label, #lengthInput, #length-value {
+        width: 80%;
+        margin: 5px 0;
+    }
+}
+
+/* Ensure Slider Before Element is Positioned Correctly */
+.slider::before {
+    content: "";
+    position: absolute;
 }
