@@ -17,6 +17,16 @@
     <div class="container">
         <h1 id="main-heading">Crank out a mighty<br><span>Password 🚀</span></h1>
         <p id="pass-el" copy></p>
+        <div class="options">
+            <label><input type="checkbox" id="includeUpper" checked> Uppercase</label>
+            <label><input type="checkbox" id="includeLower" checked> Lowercase</label>
+            <label><input type="checkbox" id="includeNumbers" checked> Numbers</label>
+            <label><input type="checkbox" id="includeSymbols" checked> Symbols</label>
+        </div>
+        <div class="length-control">
+            <label for="lengthInput">Length:</label>
+            <input id="lengthInput" type="number" min="4" max="30" value="15">
+        </div>
         <button id="generate-button">Generate Password 🗝️</button>
         <i class="fa-solid fa-moon fa-2xl" onclick="toggleMode()" id="moonIcon"></i>
         <i class="fa-solid fa-sun fa-2xl" onclick="toggleMode()" id="modeIcon" style="display: none;"></i>
