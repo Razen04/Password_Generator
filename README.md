@@ -10,10 +10,9 @@ Dark Mode:
 ![DarkMode](https://github.com/Razen04/Password_Generator/assets/73794553/86847ef5-4e6a-4e3b-95ed-dcc54bc0a48c)
 
 Light Mode:
-
 ![LightMode](https://github.com/Razen04/Password_Generator/assets/73794553/cf5d06c7-2788-4e67-bb91-347330846b3d)
 
-
+---
 
 ## Features
 
@@ -22,11 +21,26 @@ Light Mode:
 - User-friendly and intuitive interface.
 - Toggle between dark and light mode.
 
+---
+
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
+
+---
+
+## Attribution and License
+
+This project was created by [badbyeworld](https://github.com/Razen04) and is licensed under the MIT License. If you use or modify this project, kindly provide proper attribution to the original repository. 
+
+### MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+---
 
 ## Contributing
 
@@ -42,6 +56,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 5. Create a pull request to merge your changes into the main project.
 
+---
 
 ## To-Do
 
@@ -63,4 +78,12 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - [ ] Keep the user interface clean and user-friendly.
 - [ ] Stay updated on best practices for password security.
 
+---
+
 Feel free to contribute to this project by working on any of the tasks above. Your contributions are greatly appreciated!
+
+---
+
+### Acknowledgments
+
+Thank you to the open-source community for inspiring and supporting projects like this. If you use or showcase this project, please remember to credit the original repository to promote transparency and collaboration.
