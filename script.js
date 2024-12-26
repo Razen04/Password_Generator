@@ -7,11 +7,11 @@ function generatePassword() {
   const passEl = document.getElementById("pass-el");
   const length = parseInt(document.getElementById("lengthInput").value, 10);
 
-  // Get user-selected options
-  const includeUpper = document.getElementById("includeUpper").checked;
-  const includeLower = document.getElementById("includeLower").checked;
-  const includeNumbers = document.getElementById("includeNumbers").checked;
-  const includeSymbols = document.getElementById("includeSymbols").checked;
+  // Get user-selected options using button states
+  const includeUpper = document.getElementById("toggleUpper").classList.contains("active");
+  const includeLower = document.getElementById("toggleLower").classList.contains("active");
+  const includeNumbers = document.getElementById("toggleNumbers").classList.contains("active");
+  const includeSymbols = document.getElementById("toggleSymbols").classList.contains("active");
 
   let finalChars = "";
   if (includeUpper) finalChars += uppercaseChars;
@@ -27,8 +27,11 @@ function generatePassword() {
 
   const password = Array.from({ length }, () => finalChars[Math.floor(Math.random() * finalChars.length)]).join("");
   passEl.textContent = password;
-  navigator.clipboard.writeText(password).then(() => showNotification("Password copied!", 2000));
   
+  // Show copy button
+  const copyButton = document.getElementById("copy-button");
+  copyButton.style.display = 'inline-block';
+
   const strength = calculateStrength(password);
   updateStrengthIndicator(strength);
 }
@@ -51,8 +54,24 @@ function updateStrengthIndicator(strength) {
   const strengthBar = document.getElementById("strength-bar");
   const strengthText = document.getElementById("strength-text");
   
-  strengthBar.style.width = `${(strength.level === "Weak" ? 33 : strength.level === "Moderate" ? 66 : 100)}%`;
+  let width;
+  switch(strength.level) {
+      case "Weak":
+          width = 33;
+          break;
+      case "Moderate":
+          width = 66;
+          break;
+      case "Strong":
+          width = 100;
+          break;
+      default:
+          width = 0;
+  }
+
+  strengthBar.style.width = `${width}%`;
   strengthBar.style.backgroundColor = strength.color;
+  strengthBar.setAttribute('aria-valuenow', width);
   strengthText.textContent = `Strength: ${strength.level}`;
 }
 
@@ -68,10 +87,12 @@ function showNotification(message, duration) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
   const modeIcon = document.getElementById("modeIcon");
-  const stylesheet = document.getElementById("stylesheet");
   const moonIcon = document.getElementById("moonIcon");
-  if (stylesheet.getAttribute("href") === 'dark-mode.css') {
+
+  // Initialize theme based on current class
+  if (body.classList.contains('dark')) {
     modeIcon.style.display = 'none';
     moonIcon.style.display = 'inline';
   } else {
@@ -79,25 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
     moonIcon.style.display = 'none';
   }
 
-  const heading = document.getElementById("main-heading");
-  const headingOptions = [
-    "Crank out a mighty<br><span>Password 🚀</span>",
-    "Forge your ultimate<br><span>Password 🔑</span>",
-    "Unleash unstoppable<br><span>Password 🔥</span>",
-    "Blaze through with<br><span>Password ⚡</span>"
-  ];
-  heading.innerHTML = headingOptions[Math.floor(Math.random() * headingOptions.length)];
-
   function toggleMode() {
-    const currentMode = stylesheet.getAttribute("href");
-    if (currentMode === 'dark-mode.css') {
-        stylesheet.setAttribute('href', 'light-mode.css');
-        modeIcon.style.display = 'inline';
-        moonIcon.style.display = 'none';
-    } else {
-        stylesheet.setAttribute('href', 'dark-mode.css');
+    body.classList.toggle('dark');
+    if (body.classList.contains('dark')) {
         modeIcon.style.display = 'none';
         moonIcon.style.display = 'inline';
+    } else {
+        modeIcon.style.display = 'inline';
+        moonIcon.style.display = 'none';
     }
   }
 
@@ -115,4 +125,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const generateButton = document.getElementById("generate-button");
   generateButton.addEventListener("click", () => generatePassword());
+
+  // Replace checkbox references with button references
+  const toggleUpper = document.getElementById("toggleUpper");
+  const toggleLower = document.getElementById("toggleLower");
+  const toggleNumbers = document.getElementById("toggleNumbers");
+  const toggleSymbols = document.getElementById("toggleSymbols");
+
+  // Add event listeners for toggle buttons
+  toggleUpper.addEventListener("click", () => {
+      toggleUpper.classList.toggle("active");
+  });
+  toggleLower.addEventListener("click", () => {
+      toggleLower.classList.toggle("active");
+  });
+  toggleNumbers.addEventListener("click", () => {
+      toggleNumbers.classList.toggle("active");
+  });
+  toggleSymbols.addEventListener("click", () => {
+      toggleSymbols.classList.toggle("active");
+  });
+
+  const copyButton = document.getElementById("copy-button");
+  copyButton.addEventListener("click", () => {
+      const passEl = document.getElementById("pass-el").textContent;
+      if(passEl) {
+          navigator.clipboard.writeText(passEl).then(() => showNotification("Password copied!", 2000));
+      }
+  });
+
 });
